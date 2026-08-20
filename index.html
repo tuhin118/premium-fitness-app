@@ -7,6 +7,7 @@
     <title>FitX Pro</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -26,6 +27,8 @@
             padding: 20px;
             padding-bottom: 100px;
         }
+
+        /* HEADER */
 
         .top {
             display: flex;
@@ -52,7 +55,10 @@
             align-items: center;
             justify-content: center;
             font-size: 20px;
+            cursor: pointer;
         }
+
+        /* WELCOME */
 
         .welcome {
             margin-bottom: 20px;
@@ -68,12 +74,22 @@
             font-size: 28px;
         }
 
+        /* HERO */
+
         .hero {
-            background: linear-gradient(135deg, #6c4cff, #9b5cff);
+            background: linear-gradient(
+                135deg,
+                #6c4cff,
+                #9b5cff
+            );
+
             border-radius: 24px;
             padding: 22px;
             margin-bottom: 22px;
-            box-shadow: 0 12px 35px rgba(100, 70, 255, 0.25);
+
+            box-shadow:
+                0 12px 35px
+                rgba(100, 70, 255, 0.25);
         }
 
         .hero small {
@@ -101,9 +117,16 @@
             cursor: pointer;
         }
 
+        .start-btn:active {
+            transform: scale(0.97);
+        }
+
+        /* SECTION */
+
         .section-title {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             margin: 25px 0 14px;
         }
 
@@ -115,6 +138,8 @@
             color: #8d93a1;
             font-size: 13px;
         }
+
+        /* STATS */
 
         .stats {
             display: grid;
@@ -141,6 +166,8 @@
             font-size: 11px;
         }
 
+        /* QUICK WORKOUTS */
+
         .workouts {
             display: grid;
             gap: 12px;
@@ -151,9 +178,17 @@
             border: 1px solid #202430;
             border-radius: 18px;
             padding: 16px;
+
             display: flex;
             align-items: center;
             gap: 14px;
+
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .workout:active {
+            transform: scale(0.98);
         }
 
         .workout-icon {
@@ -161,9 +196,11 @@
             height: 52px;
             border-radius: 15px;
             background: #211d39;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             font-size: 25px;
         }
 
@@ -186,11 +223,12 @@
             font-size: 20px;
         }
 
-        /* Notification */
+        /* NOTIFICATION */
 
         .notification-panel {
             margin-top: 25px;
             padding: 18px;
+
             background: #151820;
             border: 1px solid #202430;
             border-radius: 18px;
@@ -212,9 +250,11 @@
             width: 100%;
             border: none;
             padding: 13px;
+
             border-radius: 13px;
             background: #7c5cff;
             color: white;
+
             font-weight: 700;
             cursor: pointer;
         }
@@ -223,20 +263,26 @@
             transform: scale(0.98);
         }
 
-        /* Bottom Navigation */
+        /* BOTTOM NAV */
 
         .bottom-nav {
             position: fixed;
             bottom: 0;
             left: 50%;
+
             transform: translateX(-50%);
+
             width: 100%;
             max-width: 480px;
+
             background: #11141b;
             border-top: 1px solid #222630;
+
             display: flex;
             justify-content: space-around;
+
             padding: 12px 5px;
+
             z-index: 100;
         }
 
@@ -244,6 +290,7 @@
             color: #777d8c;
             text-align: center;
             font-size: 11px;
+            cursor: pointer;
         }
 
         .nav-item div {
@@ -254,14 +301,20 @@
         .nav-item.active {
             color: #8a6cff;
         }
+
+        .nav-item:active {
+            transform: scale(0.95);
+        }
+
     </style>
+
 </head>
 
 <body>
 
 <div class="app">
 
-    <!-- Header -->
+    <!-- HEADER -->
 
     <div class="top">
 
@@ -269,31 +322,43 @@
             FitX<span>Pro</span>
         </div>
 
-        <div class="bell">
+        <div
+            class="bell"
+            onclick="showNotifications()">
+
             🔔
+
         </div>
 
     </div>
 
 
-    <!-- Welcome -->
+    <!-- WELCOME -->
 
     <div class="welcome">
 
-        <p>WELCOME BACK</p>
+        <p>
+            WELCOME BACK
+        </p>
 
-        <h1>Ready to train?</h1>
+        <h1>
+            Ready to train?
+        </h1>
 
     </div>
 
 
-    <!-- Today's Workout -->
+    <!-- TODAY'S WORKOUT -->
 
     <div class="hero">
 
-        <small>TODAY'S WORKOUT</small>
+        <small>
+            TODAY'S WORKOUT
+        </small>
 
-        <h2>Full Body Power</h2>
+        <h2>
+            Full Body Power
+        </h2>
 
         <p>
             45 min • 8 exercises • Intermediate
@@ -310,13 +375,17 @@
     </div>
 
 
-    <!-- Progress -->
+    <!-- PROGRESS -->
 
     <div class="section-title">
 
-        <h2>Your Progress</h2>
+        <h2>
+            Your Progress
+        </h2>
 
-        <span>This Week</span>
+        <span>
+            This Week
+        </span>
 
     </div>
 
@@ -325,40 +394,60 @@
 
         <div class="stat">
 
-            <strong>12</strong>
+            <strong>
+                12
+            </strong>
 
-            <span>Workouts</span>
-
-        </div>
-
-
-        <div class="stat">
-
-            <strong>6.4h</strong>
-
-            <span>Training</span>
+            <span>
+                Workouts
+            </span>
 
         </div>
 
 
         <div class="stat">
 
-            <strong>🔥 7</strong>
+            <strong>
+                6.4h
+            </strong>
 
-            <span>Day Streak</span>
+            <span>
+                Training
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>
+                🔥 7
+            </strong>
+
+            <span>
+                Day Streak
+            </span>
 
         </div>
 
     </div>
 
 
-    <!-- Quick Workouts -->
+    <!-- QUICK WORKOUTS -->
 
     <div class="section-title">
 
-        <h2>Quick Workouts</h2>
+        <h2>
+            Quick Workouts
+        </h2>
 
-        <span>View All</span>
+        <span
+            onclick="window.location.href='workouts.html'"
+            style="cursor:pointer;">
+
+            View All
+
+        </span>
 
     </div>
 
@@ -366,7 +455,11 @@
     <div class="workouts">
 
 
-        <div class="workout">
+        <!-- UPPER BODY -->
+
+        <div
+            class="workout"
+            onclick="window.location.href='workout.html'">
 
             <div class="workout-icon">
                 💪
@@ -374,7 +467,9 @@
 
             <div class="workout-info">
 
-                <h3>Upper Body</h3>
+                <h3>
+                    Upper Body
+                </h3>
 
                 <p>
                     30 min • 6 exercises
@@ -389,7 +484,11 @@
         </div>
 
 
-        <div class="workout">
+        <!-- LEG POWER -->
+
+        <div
+            class="workout"
+            onclick="window.location.href='workout.html'">
 
             <div class="workout-icon">
                 🦵
@@ -397,7 +496,9 @@
 
             <div class="workout-info">
 
-                <h3>Leg Power</h3>
+                <h3>
+                    Leg Power
+                </h3>
 
                 <p>
                     35 min • 7 exercises
@@ -412,7 +513,11 @@
         </div>
 
 
-        <div class="workout">
+        <!-- CORE -->
+
+        <div
+            class="workout"
+            onclick="window.location.href='workout.html'">
 
             <div class="workout-icon">
                 🔥
@@ -420,7 +525,9 @@
 
             <div class="workout-info">
 
-                <h3>Core Blast</h3>
+                <h3>
+                    Core Blast
+                </h3>
 
                 <p>
                     20 min • 5 exercises
@@ -437,7 +544,7 @@
     </div>
 
 
-    <!-- Notification Settings -->
+    <!-- NOTIFICATION -->
 
     <div class="notification-panel">
 
@@ -463,53 +570,115 @@
 </div>
 
 
-<!-- Bottom Navigation -->
+<!-- BOTTOM NAVIGATION -->
 
 <div class="bottom-nav">
 
 
-    <div class="nav-item active">
+    <!-- HOME -->
 
-        <div>⌂</div>
+    <div
+        class="nav-item active"
+        onclick="window.location.href='index.html'">
+
+        <div>
+            ⌂
+        </div>
 
         Home
 
     </div>
 
 
-    <div class="nav-item">
+    <!-- WORKOUTS -->
 
-        <div>🏋️</div>
+    <div
+        class="nav-item"
+        onclick="window.location.href='workouts.html'">
+
+        <div>
+            🏋️
+        </div>
 
         Workouts
 
     </div>
 
 
-    <div class="nav-item">
+    <!-- PROGRESS -->
 
-        <div>📊</div>
+    <div
+        class="nav-item"
+        onclick="showProgressMessage()">
+
+        <div>
+            📊
+        </div>
 
         Progress
 
     </div>
 
 
-    <div class="nav-item">
+    <!-- PROFILE -->
 
-        <div>👤</div>
+    <div
+        class="nav-item"
+        onclick="showProfileMessage()">
+
+        <div>
+            👤
+        </div>
 
         Profile
 
     </div>
 
-
 </div>
 
 
-<!-- JavaScript -->
+<!-- JAVASCRIPT -->
 
 <script src="app.js"></script>
 
+<script>
+
+function showNotifications() {
+
+    const panel =
+        document.querySelector(
+            ".notification-panel"
+        );
+
+    if (panel) {
+
+        panel.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }
+
+}
+
+
+function showProgressMessage() {
+
+    alert(
+        "📊 Progress page is coming next!"
+    );
+
+}
+
+
+function showProfileMessage() {
+
+    alert(
+        "👤 Profile page is coming next!"
+    );
+
+}
+
+</script>
+
 </body>
-            </html>
+    </html>
