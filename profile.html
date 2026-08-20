@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profile | FitX Pro</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #0b0d12;
+            color: white;
+            min-height: 100vh;
+        }
+
+        .app {
+            max-width: 480px;
+            margin: auto;
+            padding: 20px;
+            padding-bottom: 100px;
+        }
+
+        /* HEADER */
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 25px;
+        }
+
+        .back {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 1px solid #272b36;
+            background: #151820;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .header h1 {
+            font-size: 24px;
+        }
+
+        /* PROFILE */
+
+        .profile-card {
+            background: linear-gradient(
+                135deg,
+                #6c4cff,
+                #9b5cff
+            );
+
+            border-radius: 24px;
+            padding: 25px;
+            text-align: center;
+            margin-bottom: 22px;
+        }
+
+        .avatar {
+            width: 82px;
+            height: 82px;
+            margin: auto;
+            border-radius: 50%;
+            background: #ffffff;
+            color: #6c4cff;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .profile-card h2 {
+            font-size: 23px;
+            margin-bottom: 5px;
+        }
+
+        .profile-card p {
+            font-size: 13px;
+            opacity: 0.8;
+        }
+
+        /* STATS */
+
+        .profile-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .profile-stat {
+            background: rgba(0, 0, 0, 0.15);
+            border-radius: 13px;
+            padding: 10px 5px;
+        }
+
+        .profile-stat strong {
+            display: block;
+            font-size: 17px;
+            margin-bottom: 3px;
+        }
+
+        .profile-stat span {
+            font-size: 10px;
+            opacity: 0.75;
+        }
+
+        /* SECTION */
+
+        .section-title {
+            font-size: 18px;
+            margin: 25px 0 12px;
+        }
+
+        /* MENU */
+
+        .menu {
+            background: #151820;
+            border: 1px solid #202430;
+            border-radius: 18px;
+            overflow: hidden;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            padding: 16px;
+            border-bottom: 1px solid #202430;
+            cursor: pointer;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .menu-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: #211d39;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 19px;
+        }
+
+        .menu-info {
+            flex: 1;
+        }
+
+        .menu-info h3 {
+            font-size: 14px;
+            margin-bottom: 3px;
+        }
+
+        .menu-info p {
+            color: #8d93a1;
+            font-size: 11px;
+        }
+
+        .menu-arrow {
+            color: #777d8c;
+            font-size: 20px;
+        }
+
+        /* APP INFO */
+
+        .app-info {
+            text-align: center;
+            color: #777d8c;
+            font-size: 11px;
+            margin-top: 25px;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+
+            width: 100%;
+            max-width: 480px;
+
+            background: #11141b;
+            border-top: 1px solid #222630;
+
+            display: flex;
+            justify-content: space-around;
+
+            padding: 12px 5px;
+
+            z-index: 100;
+        }
+
+        .nav-item {
+            color: #777d8c;
+            text-align: center;
+            font-size: 11px;
+            cursor: pointer;
+        }
+
+        .nav-item div {
+            font-size: 20px;
+            margin-bottom: 3px;
+        }
+
+        .nav-item.active {
+            color: #8a6cff;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <button
+            class="back"
+            onclick="history.back()">
+
+            ‹
+
+        </button>
+
+        <h1>
+            Profile
+        </h1>
+
+    </div>
+
+
+    <!-- PROFILE CARD -->
+
+    <div class="profile-card">
+
+        <div class="avatar">
+            👤
+        </div>
+
+        <h2>
+            FitX User
+        </h2>
+
+        <p>
+            Keep training. Keep improving.
+        </p>
+
+
+        <div class="profile-stats">
+
+            <div class="profile-stat">
+
+                <strong>
+                    12
+                </strong>
+
+                <span>
+                    WORKOUTS
+                </span>
+
+            </div>
+
+
+            <div class="profile-stat">
+
+                <strong>
+                    🔥 7
+                </strong>
+
+                <span>
+                    STREAK
+                </span>
+
+            </div>
+
+
+            <div class="profile-stat">
+
+                <strong>
+                    86%
+                </strong>
+
+                <span>
+                    GOAL
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- FITNESS -->
+
+    <h2 class="section-title">
+        Fitness
+    </h2>
+
+    <div class="menu">
+
+        <div
+            class="menu-item"
+            onclick="alert('Goals settings coming soon!')">
+
+            <div class="menu-icon">
+                🎯
+            </div>
+
+            <div class="menu-info">
+
+                <h3>
+                    Fitness Goals
+                </h3>
+
+                <p>
+                    Manage your training goals
+                </p>
+
+            </div>
+
+            <div class="menu-arrow">
+                ›
+            </div>
+
+        </div>
+
+
+        <div
+            class="menu-item"
+            onclick="window.location.href='progress.html'">
+
+            <div class="menu-icon">
+                📊
+            </div>
+
+            <div class="menu-info">
+
+                <h3>
+                    My Progress
+                </h3>
+
+                <p>
+                    View your workout statistics
+                </p>
+
+            </div>
+
+            <div class="menu-arrow">
+                ›
+            </div>
+
+        </div>
+
+
+        <div
+            class="menu-item"
+            onclick="alert('Achievements coming soon!')">
+
+            <div class="menu-icon">
+                🏆
+            </div>
+
+            <div class="menu-info">
+
+                <h3>
+                    Achievements
+                </h3>
+
+                <p>
+                    View your fitness achievements
+                </p>
+
+            </div>
+
+            <div class="menu-arrow">
+                ›
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SETTINGS -->
+
+    <h2 class="section-title">
+        Settings
+    </h2>
+
+    <div class="menu">
+
+        <div
+            class="menu-item"
+            onclick="window.location.href='progress.html'">
+
+            <div class="menu-icon">
+                🔔
+            </div>
+
+            <div class="menu-info">
+
+                <h3>
+                    Notifications
+                </h3>
+
+                <p>
+                    Manage workout reminders
+                </p>
+
+            </div>
+
+            <div class="menu-arrow">
+                ›
+            </div>
+
+        </div>
+
+
+        <div
+            class="menu-item"
+            onclick="alert('Theme settings coming soon!')">
+
+            <div class="menu-icon">
+                🌙
+            </div>
+
+            <div class="menu-info">
+
+                <h3>
+                    Appearance
+                </h3>
+
+                <p>
+                    Dark theme
+                </p>
+
+            </div>
+
+            <div class="menu-arrow">
+                ›
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- APP INFO -->
+
+    <div class="app-info">
+
+        FitX Pro<br>
+
+        Premium Fitness Experience<br>
+
+        Version 1.0.0
+
+    </div>
+
+</div>
+
+
+<!-- BOTTOM NAV -->
+
+<div class="bottom-nav">
+
+    <div
+        class="nav-item"
+        onclick="window.location.href='index.html'">
+
+        <div>
+            ⌂
+        </div>
+
+        Home
+
+    </div>
+
+
+    <div
+        class="nav-item"
+        onclick="window.location.href='workouts.html'">
+
+        <div>
+            🏋️
+        </div>
+
+        Workouts
+
+    </div>
+
+
+    <div
+        class="nav-item"
+        onclick="window.location.href='progress.html'">
+
+        <div>
+            📊
+        </div>
+
+        Progress
+
+    </div>
+
+
+    <div class="nav-item active">
+
+        <div>
+            👤
+        </div>
+
+        Profile
+
+    </div>
+
+</div>
+
+</body>
+</html>
