@@ -17,7 +17,7 @@
 
         body {
             background: #0b0d12;
-            color: white;
+            color: #ffffff;
             min-height: 100vh;
         }
 
@@ -28,11 +28,13 @@
             padding-bottom: 40px;
         }
 
+        /* HEADER */
+
         .header {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
+            gap: 14px;
+            margin-bottom: 22px;
         }
 
         .back {
@@ -42,26 +44,28 @@
             border: 1px solid #272b36;
             background: #151820;
             color: white;
-            font-size: 20px;
+            font-size: 22px;
             cursor: pointer;
         }
 
         .header h1 {
-            font-size: 22px;
+            font-size: 21px;
         }
 
         .subtitle {
             color: #8d93a1;
-            font-size: 13px;
+            font-size: 12px;
             margin-top: 4px;
         }
+
+        /* PROGRESS */
 
         .progress-box {
             background: #151820;
             border: 1px solid #202430;
             padding: 16px;
             border-radius: 18px;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .progress-top {
@@ -84,18 +88,24 @@
         }
 
         .progress-fill {
-            width: 12%;
+            width: 12.5%;
             height: 100%;
-            background: linear-gradient(90deg, #6c4cff, #9b5cff);
+            background: linear-gradient(
+                90deg,
+                #6c4cff,
+                #9b5cff
+            );
             border-radius: 20px;
+            transition: width 0.4s ease;
         }
+
+        /* EXERCISE */
 
         .exercise {
             background: #151820;
             border: 1px solid #202430;
             border-radius: 22px;
             padding: 20px;
-            margin-bottom: 18px;
         }
 
         .exercise-number {
@@ -106,26 +116,35 @@
         }
 
         .exercise h2 {
-            font-size: 23px;
+            font-size: 24px;
             margin-bottom: 8px;
         }
 
         .exercise-info {
             color: #8d93a1;
             font-size: 13px;
+            line-height: 1.5;
             margin-bottom: 18px;
         }
+
+        /* EXERCISE VISUAL */
 
         .exercise-icon {
             height: 170px;
             border-radius: 18px;
-            background: #211d39;
+            background: linear-gradient(
+                135deg,
+                #211d39,
+                #171a28
+            );
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 75px;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
+
+        /* DETAILS */
 
         .details {
             display: grid;
@@ -137,7 +156,7 @@
         .detail {
             background: #0f1117;
             border-radius: 14px;
-            padding: 12px 5px;
+            padding: 13px 5px;
             text-align: center;
         }
 
@@ -152,6 +171,38 @@
             font-size: 10px;
         }
 
+        /* SET TRACKER */
+
+        .set-title {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .sets-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .set-btn {
+            flex: 1;
+            padding: 11px 5px;
+            border-radius: 12px;
+            border: 1px solid #292d39;
+            background: #0f1117;
+            color: #8d93a1;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .set-btn.done {
+            background: #7c5cff;
+            color: white;
+            border-color: #7c5cff;
+        }
+
+        /* TIMER */
+
         .timer {
             text-align: center;
             padding: 18px;
@@ -162,13 +213,14 @@
 
         .timer-label {
             color: #8d93a1;
-            font-size: 12px;
+            font-size: 11px;
             margin-bottom: 5px;
         }
 
         .timer-time {
-            font-size: 35px;
+            font-size: 36px;
             font-weight: 800;
+            letter-spacing: 1px;
         }
 
         .timer-buttons {
@@ -196,6 +248,8 @@
             color: white;
         }
 
+        /* COMPLETE */
+
         .complete {
             width: 100%;
             border: none;
@@ -208,12 +262,56 @@
             cursor: pointer;
         }
 
+        .complete:active,
+        .start:active,
+        .reset:active,
+        .set-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* FINISH SCREEN */
+
+        .finish-screen {
+            display: none;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .finish-icon {
+            font-size: 70px;
+            margin-bottom: 20px;
+        }
+
+        .finish-screen h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .finish-screen p {
+            color: #8d93a1;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .home-btn {
+            border: none;
+            padding: 14px 25px;
+            border-radius: 14px;
+            background: #7c5cff;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="container" id="workoutScreen">
+
+    <!-- HEADER -->
 
     <div class="header">
 
@@ -226,77 +324,139 @@
         </button>
 
         <div>
+
             <h1>Full Body Power</h1>
+
             <div class="subtitle">
                 Today's Workout
             </div>
+
         </div>
 
     </div>
 
 
-    <!-- Progress -->
+    <!-- PROGRESS -->
 
     <div class="progress-box">
 
         <div class="progress-top">
+
             <strong>Workout Progress</strong>
-            <span id="progressText">1 / 8</span>
+
+            <span id="progressText">
+                1 / 8
+            </span>
+
         </div>
 
         <div class="progress-bar">
+
             <div
                 class="progress-fill"
                 id="progressFill">
             </div>
+
         </div>
 
     </div>
 
 
-    <!-- Exercise -->
+    <!-- EXERCISE -->
 
     <div class="exercise">
 
-        <div class="exercise-number">
+        <div
+            class="exercise-number"
+            id="exerciseNumber">
+
             EXERCISE 01
+
         </div>
+
 
         <h2 id="exerciseName">
             Push Ups
         </h2>
 
-        <p class="exercise-info">
-            Keep your body straight and controlled.
+
+        <p
+            class="exercise-info"
+            id="exerciseInfo">
+
+            Keep your body controlled and use
+            a comfortable range of motion.
+
         </p>
 
 
-        <div class="exercise-icon">
+        <div
+            class="exercise-icon"
+            id="exerciseIcon">
+
             💪
+
         </div>
 
+
+        <!-- DETAILS -->
 
         <div class="details">
 
             <div class="detail">
-                <strong id="sets">3</strong>
-                <span>SETS</span>
+
+                <strong id="sets">
+                    3
+                </strong>
+
+                <span>
+                    SETS
+                </span>
+
             </div>
 
-            <div class="detail">
-                <strong id="reps">12</strong>
-                <span>REPS</span>
-            </div>
 
             <div class="detail">
-                <strong>45s</strong>
-                <span>REST</span>
+
+                <strong id="reps">
+                    12
+                </strong>
+
+                <span>
+                    REPS
+                </span>
+
+            </div>
+
+
+            <div class="detail">
+
+                <strong>
+                    45s
+                </strong>
+
+                <span>
+                    REST
+                </span>
+
             </div>
 
         </div>
 
 
-        <!-- Timer -->
+        <!-- SET TRACKER -->
+
+        <div class="set-title">
+            Complete your sets
+        </div>
+
+        <div
+            class="sets-row"
+            id="setsRow">
+        </div>
+
+
+        <!-- TIMER -->
 
         <div class="timer">
 
@@ -312,6 +472,7 @@
 
             </div>
 
+
             <div class="timer-buttons">
 
                 <button
@@ -321,6 +482,7 @@
                     Start
 
                 </button>
+
 
                 <button
                     class="reset"
@@ -335,6 +497,8 @@
         </div>
 
 
+        <!-- COMPLETE -->
+
         <button
             class="complete"
             onclick="completeExercise()">
@@ -348,79 +512,133 @@
 </div>
 
 
+<!-- FINISH SCREEN -->
+
+<div
+    class="container finish-screen"
+    id="finishScreen">
+
+    <div class="finish-icon">
+        🏆
+    </div>
+
+    <h1>
+        Workout Complete!
+    </h1>
+
+    <p>
+        Great job! You completed today's
+        Full Body Power workout.
+    </p>
+
+    <button
+        class="home-btn"
+        onclick="window.location.href='index.html'">
+
+        Back to Home
+
+    </button>
+
+</div>
+
+
 <script>
 
 let seconds = 45;
 let timerInterval = null;
 
+let currentExercise = 0;
+
 const exercises = [
+
     {
         name: "Push Ups",
         sets: 3,
         reps: 12,
-        icon: "💪"
+        icon: "💪",
+        info: "Keep your body controlled and use a comfortable range of motion."
     },
+
     {
         name: "Bodyweight Squats",
         sets: 3,
         reps: 15,
-        icon: "🦵"
+        icon: "🦵",
+        info: "Keep your movement controlled and maintain a comfortable stance."
     },
+
     {
         name: "Mountain Climbers",
         sets: 3,
         reps: 20,
-        icon: "🔥"
+        icon: "🔥",
+        info: "Move at a comfortable pace while keeping your body stable."
     },
+
     {
         name: "Lunges",
         sets: 3,
         reps: 12,
-        icon: "🏃"
+        icon: "🏃",
+        info: "Use controlled movements and keep your balance."
     },
+
     {
         name: "Plank",
         sets: 3,
         reps: 30,
-        icon: "🧘"
+        icon: "🧘",
+        info: "Keep a comfortable position and maintain steady breathing."
     },
+
     {
         name: "Jumping Jacks",
         sets: 3,
         reps: 20,
-        icon: "⚡"
+        icon: "⚡",
+        info: "Perform the movement at a comfortable pace."
     },
+
     {
         name: "Crunches",
         sets: 3,
         reps: 15,
-        icon: "🔥"
+        icon: "🔥",
+        info: "Move slowly and avoid straining your neck."
     },
+
     {
         name: "High Knees",
         sets: 3,
         reps: 20,
-        icon: "🏃"
+        icon: "🏃",
+        info: "Use a comfortable pace and focus on controlled movement."
     }
+
 ];
 
-let currentExercise = 0;
 
 function updateTimer() {
 
-    let minutes = Math.floor(seconds / 60);
-    let secs = seconds % 60;
+    let minutes =
+        Math.floor(seconds / 60);
+
+    let secs =
+        seconds % 60;
 
     document.getElementById("timer").textContent =
         String(minutes).padStart(2, "0") +
         ":" +
         String(secs).padStart(2, "0");
+
 }
 
 
 function startTimer() {
 
-    if (timerInterval) return;
+    if (timerInterval) {
+        return;
+    }
 
     timerInterval = setInterval(() => {
 
@@ -436,22 +654,25 @@ function startTimer() {
 
             timerInterval = null;
 
-            if (Notification.permission === "granted") {
+            if (
+                "Notification" in window &&
+                Notification.permission === "granted"
+            ) {
 
                 new Notification(
                     "FitX Pro 💪",
                     {
-                        body: "Rest time finished. Ready for the next set?"
+                        body:
+                        "Rest time finished. Ready for the next set?"
                     }
                 );
 
             }
 
-            alert("Rest time finished!");
-
         }
 
     }, 1000);
+
 }
 
 
@@ -464,6 +685,111 @@ function resetTimer() {
     seconds = 45;
 
     updateTimer();
+
+}
+
+
+function createSetButtons() {
+
+    const row =
+        document.getElementById("setsRow");
+
+    row.innerHTML = "";
+
+    const totalSets =
+        exercises[currentExercise].sets;
+
+    for (
+        let i = 1;
+        i <= totalSets;
+        i++
+    ) {
+
+        const button =
+            document.createElement("button");
+
+        button.className = "set-btn";
+
+        button.textContent =
+            "Set " + i;
+
+        button.onclick = function () {
+
+            button.classList.toggle("done");
+
+        };
+
+        row.appendChild(button);
+
+    }
+
+}
+
+
+function updateExercise() {
+
+    const exercise =
+        exercises[currentExercise];
+
+
+    document.getElementById(
+        "exerciseName"
+    ).textContent =
+        exercise.name;
+
+
+    document.getElementById(
+        "exerciseInfo"
+    ).textContent =
+        exercise.info;
+
+
+    document.getElementById(
+        "exerciseIcon"
+    ).textContent =
+        exercise.icon;
+
+
+    document.getElementById(
+        "sets"
+    ).textContent =
+        exercise.sets;
+
+
+    document.getElementById(
+        "reps"
+    ).textContent =
+        exercise.reps;
+
+
+    document.getElementById(
+        "exerciseNumber"
+    ).textContent =
+        "EXERCISE " +
+        String(currentExercise + 1)
+        .padStart(2, "0");
+
+
+    document.getElementById(
+        "progressText"
+    ).textContent =
+        (currentExercise + 1) +
+        " / " +
+        exercises.length;
+
+
+    document.getElementById(
+        "progressFill"
+    ).style.width =
+        ((currentExercise + 1) /
+        exercises.length * 100) +
+        "%";
+
+
+    createSetButtons();
+
+    resetTimer();
+
 }
 
 
@@ -471,41 +797,50 @@ function completeExercise() {
 
     currentExercise++;
 
-    if (currentExercise >= exercises.length) {
 
-        alert("🎉 Workout Complete!");
+    if (
+        currentExercise >=
+        exercises.length
+    ) {
 
-        window.location.href = "index.html";
+        clearInterval(timerInterval);
+
+        document.getElementById(
+            "workoutScreen"
+        ).style.display = "none";
+
+
+        document.getElementById(
+            "finishScreen"
+        ).style.display = "block";
+
+
+        if (
+            "Notification" in window &&
+            Notification.permission === "granted"
+        ) {
+
+            new Notification(
+                "FitX Pro 🏆",
+                {
+                    body:
+                    "Workout completed. Great job!"
+                }
+            );
+
+        }
 
         return;
+
     }
 
-    const exercise = exercises[currentExercise];
 
-    document.getElementById("exerciseName").textContent =
-        exercise.name;
+    updateExercise();
 
-    document.getElementById("sets").textContent =
-        exercise.sets;
-
-    document.getElementById("reps").textContent =
-        exercise.reps;
-
-    document.querySelector(".exercise-icon").textContent =
-        exercise.icon;
-
-    document.querySelector(".exercise-number").textContent =
-        "EXERCISE " +
-        String(currentExercise + 1).padStart(2, "0");
-
-    document.getElementById("progressText").textContent =
-        (currentExercise + 1) + " / " + exercises.length;
-
-    document.getElementById("progressFill").style.width =
-        ((currentExercise + 1) / exercises.length * 100) + "%";
-
-    resetTimer();
 }
+
+
+createSetButtons();
 
 updateTimer();
 
