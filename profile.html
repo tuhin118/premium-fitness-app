@@ -142,10 +142,15 @@
             padding: 16px;
             border-bottom: 1px solid #202430;
             cursor: pointer;
+            transition: 0.2s;
         }
 
         .menu-item:last-child {
             border-bottom: none;
+        }
+
+        .menu-item:active {
+            transform: scale(0.98);
         }
 
         .menu-icon {
@@ -190,7 +195,7 @@
             line-height: 1.6;
         }
 
-        /* NAVIGATION */
+        /* BOTTOM NAV */
 
         .bottom-nav {
             position: fixed;
@@ -325,9 +330,11 @@
 
     <div class="menu">
 
+        <!-- 1. FITNESS GOALS UPDATED -->
+
         <div
             class="menu-item"
-            onclick="alert('Goals settings coming soon!')">
+            onclick="showGoals()">
 
             <div class="menu-icon">
                 🎯
@@ -351,6 +358,8 @@
 
         </div>
 
+
+        <!-- MY PROGRESS -->
 
         <div
             class="menu-item"
@@ -379,9 +388,11 @@
         </div>
 
 
+        <!-- 2. ACHIEVEMENTS UPDATED -->
+
         <div
             class="menu-item"
-            onclick="alert('Achievements coming soon!')">
+            onclick="showAchievements()">
 
             <div class="menu-icon">
                 🏆
@@ -416,9 +427,11 @@
 
     <div class="menu">
 
+        <!-- 3. NOTIFICATIONS UPDATED -->
+
         <div
             class="menu-item"
-            onclick="window.location.href='progress.html'">
+            onclick="enableNotifications()">
 
             <div class="menu-icon">
                 🔔
@@ -443,9 +456,11 @@
         </div>
 
 
+        <!-- APPEARANCE -->
+
         <div
             class="menu-item"
-            onclick="alert('Theme settings coming soon!')">
+            onclick="showAppearance()">
 
             <div class="menu-icon">
                 🌙
@@ -541,6 +556,98 @@
     </div>
 
 </div>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+function showGoals() {
+
+    alert(
+        "🎯 Fitness Goals\n\n" +
+        "• Build Strength\n" +
+        "• Improve Fitness\n" +
+        "• Stay Consistent\n\n" +
+        "Your current goal progress: 86%"
+    );
+
+}
+
+
+function showAchievements() {
+
+    alert(
+        "🏆 Achievements\n\n" +
+        "🔥 7 Day Streak\n" +
+        "💪 12 Workouts Completed\n" +
+        "⭐ Fitness Starter"
+    );
+
+}
+
+
+function enableNotifications() {
+
+    if (!("Notification" in window)) {
+
+        alert(
+            "Notifications are not supported on this browser."
+        );
+
+        return;
+    }
+
+    if (Notification.permission === "granted") {
+
+        alert(
+            "🔔 Notifications are already enabled!"
+        );
+
+        return;
+    }
+
+    if (Notification.permission === "denied") {
+
+        alert(
+            "🔔 Notifications are blocked. " +
+            "Please allow notifications from your browser settings."
+        );
+
+        return;
+    }
+
+    Notification.requestPermission().then(function(permission) {
+
+        if (permission === "granted") {
+
+            alert(
+                "✅ Notifications enabled successfully!"
+            );
+
+        } else {
+
+            alert(
+                "Notifications were not enabled."
+            );
+
+        }
+
+    });
+
+}
+
+
+function showAppearance() {
+
+    alert(
+        "🌙 Appearance\n\n" +
+        "Current theme: Dark Theme"
+    );
+
+}
+
+</script>
 
 </body>
 </html>
