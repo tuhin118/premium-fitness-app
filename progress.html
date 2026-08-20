@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Progress | FitX Pro</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #0b0d12;
+            color: white;
+            min-height: 100vh;
+        }
+
+        .app {
+            max-width: 480px;
+            margin: auto;
+            padding: 20px;
+            padding-bottom: 100px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .back {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 1px solid #272b36;
+            background: #151820;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .header h1 {
+            font-size: 24px;
+        }
+
+        .subtitle {
+            color: #8d93a1;
+            font-size: 13px;
+            margin-top: 4px;
+        }
+
+        .streak {
+            background: linear-gradient(
+                135deg,
+                #6c4cff,
+                #9b5cff
+            );
+
+            border-radius: 22px;
+            padding: 22px;
+            margin-bottom: 22px;
+            text-align: center;
+        }
+
+        .streak-icon {
+            font-size: 42px;
+            margin-bottom: 8px;
+        }
+
+        .streak h2 {
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+
+        .streak p {
+            font-size: 13px;
+            opacity: 0.85;
+        }
+
+        .section-title {
+            font-size: 19px;
+            margin: 24px 0 14px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .stat {
+            background: #151820;
+            border: 1px solid #202430;
+            border-radius: 18px;
+            padding: 18px;
+        }
+
+        .stat-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .stat span {
+            color: #8d93a1;
+            font-size: 12px;
+        }
+
+        .week {
+            background: #151820;
+            border: 1px solid #202430;
+            border-radius: 18px;
+            padding: 18px;
+        }
+
+        .days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 7px;
+            text-align: center;
+        }
+
+        .day span {
+            display: block;
+            color: #8d93a1;
+            font-size: 10px;
+            margin-bottom: 8px;
+        }
+
+        .day-circle {
+            width: 32px;
+            height: 32px;
+            margin: auto;
+            border-radius: 50%;
+            background: #252936;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+        }
+
+        .day-circle.done {
+            background: #7c5cff;
+        }
+
+        .history {
+            display: grid;
+            gap: 10px;
+        }
+
+        .history-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #151820;
+            border: 1px solid #202430;
+            border-radius: 16px;
+            padding: 14px;
+        }
+
+        .history-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 13px;
+            background: #211d39;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        .history-info {
+            flex: 1;
+        }
+
+        .history-info h3 {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .history-info p {
+            color: #8d93a1;
+            font-size: 11px;
+        }
+
+        .completed {
+            color: #7c5cff;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 480px;
+            background: #11141b;
+            border-top: 1px solid #222630;
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 5px;
+            z-index: 100;
+        }
+
+        .nav-item {
+            color: #777d8c;
+            text-align: center;
+            font-size: 11px;
+            cursor: pointer;
+        }
+
+        .nav-item div {
+            font-size: 20px;
+            margin-bottom: 3px;
+        }
+
+        .nav-item.active {
+            color: #8a6cff;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <button
+            class="back"
+            onclick="history.back()">
+
+            ‹
+
+        </button>
+
+        <div>
+
+            <h1>
+                Progress
+            </h1>
+
+            <div class="subtitle">
+                Your fitness journey
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- STREAK -->
+
+    <div class="streak">
+
+        <div class="streak-icon">
+            🔥
+        </div>
+
+        <h2>
+            7 Day Streak
+        </h2>
+
+        <p>
+            Keep going and stay consistent!
+        </p>
+
+    </div>
+
+
+    <!-- STATS -->
+
+    <h2 class="section-title">
+        Overview
+    </h2>
+
+    <div class="stats">
+
+        <div class="stat">
+
+            <div class="stat-icon">
+                🏋️
+            </div>
+
+            <strong>
+                12
+            </strong>
+
+            <span>
+                Total Workouts
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-icon">
+                ⏱️
+            </div>
+
+            <strong>
+                6.4h
+            </strong>
+
+            <span>
+                Training Time
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-icon">
+                🎯
+            </div>
+
+            <strong>
+                86%
+            </strong>
+
+            <span>
+                Goal Progress
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-icon">
+                🏆
+            </div>
+
+            <strong>
+                4
+            </strong>
+
+            <span>
+                Achievements
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- WEEK -->
+
+    <h2 class="section-title">
+        This Week
+    </h2>
+
+    <div class="week">
+
+        <div class="days">
+
+            <div class="day">
+                <span>MON</span>
+                <div class="day-circle done">✓</div>
+            </div>
+
+            <div class="day">
+                <span>TUE</span>
+                <div class="day-circle done">✓</div>
+            </div>
+
+            <div class="day">
+                <span>WED</span>
+                <div class="day-circle done">✓</div>
+            </div>
+
+            <div class="day">
+                <span>THU</span>
+                <div class="day-circle">–</div>
+            </div>
+
+            <div class="day">
+                <span>FRI</span>
+                <div class="day-circle done">✓</div>
+            </div>
+
+            <div class="day">
+                <span>SAT</span>
+                <div class="day-circle">–</div>
+            </div>
+
+            <div class="day">
+                <span>SUN</span>
+                <div class="day-circle">–</div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- HISTORY -->
+
+    <h2 class="section-title">
+        Workout History
+    </h2>
+
+    <div class="history">
+
+
+        <div class="history-item">
+
+            <div class="history-icon">
+                🔥
+            </div>
+
+            <div class="history-info">
+
+                <h3>
+                    Full Body Power
+                </h3>
+
+                <p>
+                    Today • 45 min
+                </p>
+
+            </div>
+
+            <div class="completed">
+                ✓ Done
+            </div>
+
+        </div>
+
+
+        <div class="history-item">
+
+            <div class="history-icon">
+                💪
+            </div>
+
+            <div class="history-info">
+
+                <h3>
+                    Upper Body
+                </h3>
+
+                <p>
+                    Yesterday • 30 min
+                </p>
+
+            </div>
+
+            <div class="completed">
+                ✓ Done
+            </div>
+
+        </div>
+
+
+        <div class="history-item">
+
+            <div class="history-icon">
+                🦵
+            </div>
+
+            <div class="history-info">
+
+                <h3>
+                    Leg Power
+                </h3>
+
+                <p>
+                    2 days ago • 35 min
+                </p>
+
+            </div>
+
+            <div class="completed">
+                ✓ Done
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- BOTTOM NAV -->
+
+<div class="bottom-nav">
+
+    <div
+        class="nav-item"
+        onclick="window.location.href='index.html'">
+
+        <div>⌂</div>
+
+        Home
+
+    </div>
+
+
+    <div
+        class="nav-item"
+        onclick="window.location.href='workouts.html'">
+
+        <div>🏋️</div>
+
+        Workouts
+
+    </div>
+
+
+    <div class="nav-item active">
+
+        <div>📊</div>
+
+        Progress
+
+    </div>
+
+
+    <div
+        class="nav-item"
+        onclick="alert('Profile page coming next!')">
+
+        <div>👤</div>
+
+        Profile
+
+    </div>
+
+</div>
+
+</body>
+</html>
